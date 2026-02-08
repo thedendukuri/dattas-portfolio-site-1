@@ -22,7 +22,7 @@ const experiences = [
     period: "Sep 2024 – Apr 2025",
     highlights: [
       "Supported client account servicing & sales activities using Odyssey, Salesforce, and Encore.",
-      "Contributed to meeting quarterly sales and referral targets by supporting cross-sell opportunities for accounts, CDs, and loans."
+      "Contributed to meeting quarterly sales and referral targets by supporting cross-sell opportunities for accounts, CDs, and loans.",
       "Maintained client relationships and ensured regulatory compliance in daily transactions.",
       "Assisted with audits on transactions & internal cash levels in adherence of AML/KYC flags, CTR filings, or Bank Secrecy Act requirements.",
     ],
