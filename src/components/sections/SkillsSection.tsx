@@ -28,12 +28,12 @@ const certifications = [
   {
     title: "IBM Data Analysis Using Python",
     issuer: "IBM",
-    url: "https://www.credly.com/badges/ibm-data-analysis-python",
+    url: "https://www.credly.com/badges/8658a807-b452-48d8-a384-c823cce641ba/public_url",
   },
   {
     title: "Bloomberg Markets Certification",
     issuer: "Bloomberg",
-    url: "https://www.credly.com/badges/bloomberg-markets-cert",
+    url: "https://portal.bloombergforeducation.com/certificates/W3vPwPUnZNNZ7u53zo93SffT",
   }
 ];
 
