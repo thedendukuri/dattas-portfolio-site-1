@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Linkedin, Github, Mail } from "lucide-react";
-import profilePhoto from "@/assets/profile-photo.jpeg";
+import profilePhoto from "@/assets/profile-photo-1.jpeg";
 
 export function HomeSection() {
   return (
@@ -92,8 +92,8 @@ export function HomeSection() {
           className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed"
         >
           Hello! My name is Datta Gopal Dendukuri. I am an MBA Student at UMass Lowell with expertise in financial modeling and data analytics. 
-          Combined with my undergrad degree and 3 years of experience ( 3 years as with a local small business as an operations & strategy lead, 
-          and 1 year as a Banker at TD Bank, I've grown passionate about leveraging data-driven insights to drive business growth. I am currently 
+          Combined with my undergrad degree and 3 years of experience (3 years with a local small business assisting in operations, 
+          and 1 year as a Banker at TD Bank), I've grown passionate about leveraging data-driven insights to drive business growth. I am currently 
           looking for internship opportunities to further my professional growth.
         </motion.p>
 
