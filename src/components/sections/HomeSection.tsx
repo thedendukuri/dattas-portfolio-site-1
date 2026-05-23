@@ -81,7 +81,7 @@ export function HomeSection() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="text-xl md:text-2xl text-muted-foreground font-medium mb-6"
         >
-          Finance & Data Analytics Professional
+          MBA Candidate · Finance & Analytics
         </motion.p>
 
         {/* Bio */}
@@ -91,10 +91,9 @@ export function HomeSection() {
           transition={{ duration: 0.6, delay: 0.6 }}
           className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed"
         >
-          Hello! My name is Datta Gopal Dendukuri. I am an MBA Student at UMass Lowell with expertise in financial modeling and data analytics. 
-          Combined with my undergrad degree and 3 years of experience (3 years with a local small business assisting in operations, 
-          and 1 year as a Banker at TD Bank), I've grown passionate about leveraging data-driven insights to drive business growth. I am currently 
-          looking for internship opportunities to further my professional growth.
+          MBA candidate at UMass Lowell with a dual background in Finance & MIS, specializing in analytics, financial modeling, and operational reporting.
+          Experienced in transforming business data into actionable insights using Python, SQL, Excel, and Tableau — from building ETL pipelines and full-stack platforms
+          to pricing dashboards and category performance analyses. Seeking an early-career role in analytics or financial operations.
         </motion.p>
 
         {/* Social Links */}

@@ -3,16 +3,36 @@ import { Briefcase, GraduationCap, Calendar, MapPin } from "lucide-react";
 
 const experiences = [
   {
+    title: "Supply Chains Analytics Intern",
+    company: "Vinayaka Flowers",
+    location: "Remote",
+    period: "Mar 2026 – Present",
+    highlights: [
+      "Designed a PostgreSQL-backed ETL pipeline integrating Supabase REST APIs to centralize order and product data, enabling real-time operational reporting and reconciling sales data with inventory records.",
+      "Modeled normalized database schemas for products, carts, and orders to support scalable transaction processing across 20+ SKUs. Built SQL-based cart and checkout workflows with pricing, inventory validation, and order finalization logic.",
+      "Implemented transactional checkout processing to ensure atomic cart-to-order conversion and data consistency across inventory and order tables; automated inventory updates during checkout.",
+    ],
+  },
+  {
+    title: "Founder",
+    company: "Pravaaha.com",
+    location: "Remote",
+    period: "Feb 2026 – Present",
+    highlights: [
+      "Built a full-stack Indian financial markets platform (Railway/Node, Supabase/PostgreSQL) featuring a live stock screener across 423+ NSE/BSE equities with real-time price data, sector filtering, and market cap–ranked sorting via Yahoo Finance API integration.",
+      "Designed multi-timeframe OHLC charting (1D to 1Y) for individual equities alongside a mutual funds tracker, replicating core analytical tools used by retail investors and equity research workflows.",
+      "Architected a two-stage RSS news ingestion pipeline using Supabase Edge Functions (Deno/TypeScript) & pg_cron — fetching from 20 sources hourly, deduplicating via SHA-256 content hashing, and processing into normalized tables serving 900+ articles to the frontend.",
+    ],
+  },
+  {
     title: "Operations Specialist",
-    company: "NEST Canteen",
+    company: "NEST Inc.",
     location: "Littleton, MA",
     period: "Jan 2023 – Present",
     highlights: [
-      "Built and scaled the restaurant from launch through daily operations, leading end-to-end operations including vendor sourcing, pricing strategy, inventory management, cash flow tracking, & invoice generation using QuickBooks",
-      "Supports capacity planning & supply chain analytics by forecasting inventory needs, tracking vendor lead times & modeling weekly demand",
-      "Analyzes data from Toast for regular trends analysis using Excel; designed & tracked weekly financial metrics (revenue, margins, spend)",
-      "Currently building a lightweight admin portal using React.js, Google Firebase, & Python to automate reporting, reconciliation, & receipt/email generation",
-      "Integrated a new POS system and revenue channels that increased monthly revenues by approximately 130%",
+      "Supports daily operations managing vendor coordination and inventory monitoring, while periodically generating financial reports using QuickBooks and Excel, incorporating key KPIs into analyses.",
+      "Built Excel-based dashboards analyzing POS data to surface demand trends, directly informing weekly purchasing decisions and inventory forecasts.",
+      "Performs periodic variance analysis on operational spending to identify cost drivers, supporting budgeting improvements and continuous optimization of expense control.",
     ],
   },
   {
@@ -21,20 +41,9 @@ const experiences = [
     location: "Woburn, MA",
     period: "Sep 2024 – Apr 2025",
     highlights: [
-      "Supported client account servicing & sales activities using Odyssey, Salesforce, and Encore.",
-      "Contributed to meeting quarterly sales and referral targets by supporting cross-sell opportunities for accounts, CDs, and loans.",
-      "Maintained client relationships and ensured regulatory compliance in daily transactions.",
-      "Assisted with audits on transactions & internal cash levels in adherence of AML/KYC flags, CTR filings, or Bank Secrecy Act requirements.",
-    ],
-  },
-  {
-    title: "Building Manager",
-    company: "University of Massachusetts, Lowell",
-    location: "Lowell, MA",
-    period: "Sep 2021 – Dec 2022",
-    highlights: [
-      "Coordinated event logistics and daily facility operations",
-      "Provided AV and on-site support for university events and external guests",
+      "Managed client account servicing and sales support using Salesforce, Odyssey, and Encore, assisting with account openings, lending products, and financial service recommendations.",
+      "Maintained compliance with federal banking regulations, reviewing transaction activity and supporting internal audit procedures.",
+      "Identified cross-sell opportunities for deposit accounts and CDs, contributing to branch referral and sales targets.",
     ],
   },
 ];
@@ -47,16 +56,10 @@ const education = [
     expected: "Jan 2025 – Dec 2026 | 3.35 GPA",
   },
   {
-    degree: "Graduate Certificate in Financial Management",
-    school: "University of Massachusetts, Lowell",
-    status: "Completed",
-    expected: "Jan 2025 – May 2025",
-  },
-  {
     degree: "B.Sc. Business Administration (MIS & Finance)",
     school: "University of Massachusetts, Lowell",
     status: "Completed",
-    expected: "Sep 2019 – Aug 2024",
+    expected: "Sep 2019 – Aug 2024 | Dual concentration: Finance & MIS",
   },
 ];
 

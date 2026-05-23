@@ -247,8 +247,7 @@ export function ContactSection() {
               <div className="flex flex-wrap gap-2">
                 <span className="px-3 py-1 rounded-full bg-gold/10 text-gold text-sm">Telugu (Fluent)</span>
                 <span className="px-3 py-1 rounded-full bg-gold/10 text-gold text-sm">Hindi (Fluent)</span>
-                <span className="px-3 py-1 rounded-full bg-gold/10 text-gold text-sm">English (Business)</span>
-                <span className="px-3 py-1 rounded-full bg-muted text-muted-foreground text-sm">Spanish (Conversational)</span>
+                <span className="px-3 py-1 rounded-full bg-gold/10 text-gold text-sm">English (Fluent)</span>
               </div>
             </div>
           </motion.div>

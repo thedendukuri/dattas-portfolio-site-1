@@ -5,36 +5,48 @@ const skillCategories = [
   {
     title: "Data & Analytics",
     icon: Database,
-    skills: ["SQL", "Python (Pandas, NumPy)", "R (dplyr, ggplot2)", "Excel (PivotTables, VBA)", "JavaScript"],
+    skills: ["SQL", "Python", "DAX", "Excel", "PostgreSQL", "Statistical Analysis", "Data Cleaning", "Tableau"],
   },
   {
-    title: "BI & Visualization",
+    title: "Cloud Platforms",
     icon: BarChart3,
-    skills: ["Tableau", "Power BI"],
+    skills: ["Google BigQuery", "Google Data Studio", "Supabase", "AWS (basic)", "Azure"],
   },
   {
     title: "Finance",
     icon: DollarSign,
-    skills: ["Financial Modeling", "DCF Valuation", "Portfolio Optimization", "Budgeting & Cost Control", "VaR Modeling"],
+    skills: ["Financial Modeling", "DCF Valuation", "Variance Analysis", "Budgeting & Cost Control", "QuickBooks"],
   },
   {
-    title: "Systems & Tools",
+    title: "Tools & Dev",
     icon: Wrench,
-    skills: ["Salesforce CRM", "QuickBooks", "Toast POS", "Jupyter Notebook", "ChatGPT", "Agentforce"],
+    skills: ["GitHub", "Cursor", "Copilot", "Claude", "Jupyter Notebook", "Salesforce CRM"],
   },
 ];
 
 const certifications = [
   {
-    title: "IBM Data Analysis Using Python",
-    issuer: "IBM",
+    title: "Data Analysis Using Python",
+    issuer: "IBM Skillsbuild",
     url: "https://www.credly.com/badges/8658a807-b452-48d8-a384-c823cce641ba/public_url",
   },
   {
     title: "Bloomberg Markets Certification",
     issuer: "Bloomberg",
     url: "https://portal.bloombergforeducation.com/certificates/W3vPwPUnZNNZ7u53zo93SffT",
-  }
+  },
+  {
+    title: "JPM Investment Banking Simulation",
+    issuer: "Forage",
+    url: "https://www.theforage.com/",
+  },
+];
+
+const salesforceBadges = [
+  "Superbadge: Prompt Builder Templates",
+  "Metadata Mgmt in Tableau",
+  "Data Analysis in Tableau Desktop",
+  "Data Vis. in Tableau Cloud",
 ];
 
 const containerVariants = {
@@ -109,13 +121,14 @@ export function SkillsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4 }}
+          className="mb-8"
         >
           <div className="flex items-center justify-center gap-2 mb-6">
             <Award className="w-5 h-5 text-gold" />
             <h3 className="font-display text-xl text-foreground">Professional Certifications</h3>
           </div>
-          
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+
+          <div className="grid sm:grid-cols-3 gap-4">
             {certifications.map((cert, index) => (
               <motion.div
                 key={cert.title}
@@ -137,6 +150,31 @@ export function SkillsSection() {
                   <p className="text-xs text-muted-foreground">{cert.issuer}</p>
                 </a>
               </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Salesforce Badges */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.6 }}
+        >
+          <div className="flex items-center justify-center gap-2 mb-4">
+            <svg className="w-5 h-5 text-gold" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+            </svg>
+            <h3 className="font-display text-xl text-foreground">Salesforce Trailhead Badges</h3>
+          </div>
+          <div className="flex flex-wrap justify-center gap-2">
+            {salesforceBadges.map((badge) => (
+              <span
+                key={badge}
+                className="px-3 py-1.5 rounded-full bg-gold/10 text-gold text-sm border border-gold/20"
+              >
+                {badge}
+              </span>
             ))}
           </div>
         </motion.div>
