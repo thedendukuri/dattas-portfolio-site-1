@@ -5,6 +5,7 @@ export interface Project {
   details: string;
   technologies: string[];
   category: "finance" | "technical";
+  liveUrl?: string;
 }
 
 export const financeProjects: Project[] = [
@@ -36,12 +37,13 @@ export const technicalProjects: Project[] = [
     category: "technical",
   },
   {
-    id: "pravaaha-platform",
-    title: "Pravaaha.com — Indian Markets Platform",
+    id: "prvaaha-platform",
+    title: "Prvaaha.com — Indian Markets Platform",
     description: "Full-stack financial markets platform with live stock screener across 423+ NSE/BSE equities",
     details: "Built a full-stack Indian financial markets platform (Railway/Node, Supabase/PostgreSQL) featuring a live stock screener across 423+ NSE/BSE equities with real-time price data, sector filtering, and market cap–ranked sorting via Yahoo Finance API integration. Designed multi-timeframe OHLC charting (1D to 1Y) and a mutual funds tracker. Architected a two-stage RSS news ingestion pipeline using Supabase Edge Functions (Deno/TypeScript) and pg_cron — fetching from 20 sources hourly, deduplicating via SHA-256 content hashing, and processing into normalized tables serving 900+ articles to the frontend.",
     technologies: ["Node.js", "PostgreSQL", "Supabase", "TypeScript", "Deno", "Yahoo Finance API", "Railway"],
     category: "technical",
+    liveUrl: "https://prvaaha.com",
   },
   {
     id: "vinayaka-etl",

@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowLeft, TrendingUp, Code } from "lucide-react";
+import { ArrowLeft, TrendingUp, Code, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { getProjectById } from "@/data/projects";
 import { ThemeProvider } from "@/hooks/useTheme";
@@ -36,12 +36,12 @@ function ProjectDetailContent() {
       <header className="border-b border-border">
         <div className="container mx-auto px-6 py-4 max-w-4xl">
           <Button
-            onClick={() => navigate("/")}
+            onClick={() => navigate("/projects")}
             variant="ghost"
             className="hover:text-gold"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
-            Back to Portfolio
+            Back to Projects
           </Button>
         </div>
       </header>
@@ -72,6 +72,21 @@ function ProjectDetailContent() {
           <p className="text-lg text-muted-foreground mb-8">
             {project.description}
           </p>
+
+          {/* Live Site Link */}
+          {project.liveUrl && (
+            <div className="mb-8">
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border-2 border-gold text-gold hover:bg-gold hover:text-background font-semibold transition-colors"
+              >
+                <ExternalLink className="w-4 h-4" />
+                Visit {project.liveUrl.replace("https://", "")}
+              </a>
+            </div>
+          )}
 
           {/* Technologies */}
           <div className="flex flex-wrap gap-2 mb-12">

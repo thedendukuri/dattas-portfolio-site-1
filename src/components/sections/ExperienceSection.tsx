@@ -15,7 +15,7 @@ const experiences = [
   },
   {
     title: "Founder",
-    company: "Pravaaha.com",
+    company: "Prvaaha.com",
     location: "Remote",
     period: "Feb 2026 – Present",
     highlights: [
