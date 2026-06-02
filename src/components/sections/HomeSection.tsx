@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Linkedin, Github, Mail } from "lucide-react";
+import { Linkedin, Github, Mail, Download } from "lucide-react";
 import profilePhoto from "@/assets/profile-photo-1.jpeg";
 
 export function HomeSection() {
@@ -127,6 +127,23 @@ export function HomeSection() {
             aria-label="Email"
           >
             <Mail className="w-6 h-6" />
+          </a>
+        </motion.div>
+
+        {/* Resume Download */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 1.0 }}
+          className="mt-6"
+        >
+          <a
+            href="/gopal-dendukuri-resume.pdf"
+            download="Gopal-Dendukuri-Resume.pdf"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border-2 border-gold text-gold hover:bg-gold hover:text-background font-semibold transition-colors"
+          >
+            <Download className="w-4 h-4" />
+            Download Resume
           </a>
         </motion.div>
 

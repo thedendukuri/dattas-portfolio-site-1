@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Briefcase, GraduationCap, Calendar, MapPin } from "lucide-react";
+import { Briefcase, GraduationCap, Calendar, MapPin, Download } from "lucide-react";
 
 const experiences = [
   {
@@ -90,9 +90,17 @@ export function ExperienceSection() {
           <h2 className="font-display text-3xl md:text-5xl text-foreground mb-4">
             Experience & <span className="text-gold">Education</span>
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-muted-foreground max-w-2xl mx-auto mb-6">
             Building expertise in finance, data analytics, and operational excellence
           </p>
+          <a
+            href="/gopal-dendukuri-resume.pdf"
+            download="Gopal-Dendukuri-Resume.pdf"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border-2 border-gold text-gold hover:bg-gold hover:text-background font-semibold transition-colors"
+          >
+            <Download className="w-4 h-4" />
+            Download Resume
+          </a>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-8">
