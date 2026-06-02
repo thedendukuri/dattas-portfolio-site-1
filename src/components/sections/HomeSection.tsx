@@ -4,7 +4,7 @@ import profilePhoto from "@/assets/profile-photo-1.jpeg";
 
 export function HomeSection() {
   return (
-    <section className="snap-section relative flex items-center justify-center overflow-hidden">
+    <section className="snap-section relative flex items-center justify-center py-28">
       {/* Background gradient */}
       <div className="absolute inset-0 navy-gradient opacity-10 dark:opacity-30" />
       
@@ -89,7 +89,7 @@ export function HomeSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed"
+          className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed"
         >
           MBA candidate at UMass Lowell with a dual background in Finance & MIS, specializing in analytics, financial modeling, and operational reporting.
           Experienced in transforming business data into actionable insights using Python, SQL, Excel, and Tableau — from building ETL pipelines and full-stack platforms
