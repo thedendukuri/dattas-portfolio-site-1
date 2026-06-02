@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowLeft, TrendingUp, Code, ExternalLink } from "lucide-react";
+import { ArrowLeft, TrendingUp, Code, ExternalLink, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { getProjectById } from "@/data/projects";
 import { ThemeProvider } from "@/hooks/useTheme";
@@ -73,18 +73,31 @@ function ProjectDetailContent() {
             {project.description}
           </p>
 
-          {/* Live Site Link */}
-          {project.liveUrl && (
-            <div className="mb-8">
-              <a
-                href={project.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border-2 border-gold text-gold hover:bg-gold hover:text-background font-semibold transition-colors"
-              >
-                <ExternalLink className="w-4 h-4" />
-                Visit {project.liveUrl.replace("https://", "")}
-              </a>
+          {/* Live Site Link + Certificate */}
+          {(project.liveUrl || project.certificateUrl) && (
+            <div className="flex flex-wrap gap-3 mb-8">
+              {project.liveUrl && (
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border-2 border-gold text-gold hover:bg-gold hover:text-background font-semibold transition-colors"
+                >
+                  <ExternalLink className="w-4 h-4" />
+                  Visit {project.liveUrl.replace("https://", "")}
+                </a>
+              )}
+              {project.certificateUrl && (
+                <a
+                  href={project.certificateUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border-2 border-border text-foreground hover:border-gold hover:text-gold font-semibold transition-colors"
+                >
+                  <Award className="w-4 h-4" />
+                  View Certificate
+                </a>
+              )}
             </div>
           )}
 

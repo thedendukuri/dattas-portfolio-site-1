@@ -6,6 +6,7 @@ export interface Project {
   technologies: string[];
   category: "finance" | "technical";
   liveUrl?: string;
+  certificateUrl?: string;
 }
 
 export const financeProjects: Project[] = [
@@ -24,6 +25,7 @@ export const financeProjects: Project[] = [
     details: "Performed DCF valuations, comparable company analysis, and developed pitch presentations for potential M&A transactions. Created detailed financial models and executive summaries as part of the Forage virtual experience program.",
     technologies: ["Excel", "PowerPoint", "Financial Modeling", "DCF", "Comparable Analysis"],
     category: "finance",
+    certificateUrl: "/jp-morgan-certificate.pdf",
   },
 ];
 
