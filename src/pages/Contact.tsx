@@ -1,16 +1,16 @@
 import { ThemeProvider } from "@/hooks/useTheme";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { TopNav } from "@/components/TopNav";
-import { HomeSection } from "@/components/sections/HomeSection";
+import { ContactSection } from "@/components/sections/ContactSection";
 
-const Index = () => {
+const Contact = () => {
   return (
     <ThemeProvider>
       <ThemeToggle />
       <TopNav />
-      <HomeSection />
+      <ContactSection />
     </ThemeProvider>
   );
 };
 
-export default Index;
+export default Contact;

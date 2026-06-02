@@ -1,16 +1,16 @@
 import { ThemeProvider } from "@/hooks/useTheme";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { TopNav } from "@/components/TopNav";
-import { HomeSection } from "@/components/sections/HomeSection";
+import { SkillsSection } from "@/components/sections/SkillsSection";
 
-const Index = () => {
+const Skills = () => {
   return (
     <ThemeProvider>
       <ThemeToggle />
       <TopNav />
-      <HomeSection />
+      <SkillsSection />
     </ThemeProvider>
   );
 };
 
-export default Index;
+export default Skills;
