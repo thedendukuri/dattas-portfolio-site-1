@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowLeft, TrendingUp, Code, ExternalLink, Award } from "lucide-react";
+import { ArrowLeft, TrendingUp, Code, ExternalLink, Award, X, ZoomIn } from "lucide-react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { getProjectById } from "@/data/projects";
 import { ThemeProvider } from "@/hooks/useTheme";
@@ -9,6 +10,7 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 function ProjectDetailContent() {
   const { projectId } = useParams<{ projectId: string }>();
   const navigate = useNavigate();
+  const [lightboxImg, setLightboxImg] = useState<{ src: string; caption: string } | null>(null);
 
   const project = projectId ? getProjectById(projectId) : undefined;
 
@@ -157,12 +159,18 @@ function ProjectDetailContent() {
                       </p>
 
                       {/* Screenshot */}
-                      <div className="rounded-xl overflow-hidden border border-border bg-card shadow-sm">
+                      <div
+                        className="relative group rounded-xl overflow-hidden border border-border bg-card shadow-sm cursor-zoom-in"
+                        onClick={() => setLightboxImg(img)}
+                      >
                         <img
                           src={img.src}
                           alt={`Step ${idx + 1}`}
-                          className="w-full object-contain"
+                          className="w-full object-contain transition-transform duration-300 group-hover:scale-[1.01]"
                         />
+                        <div className="absolute inset-0 bg-background/0 group-hover:bg-background/20 transition-colors flex items-center justify-center">
+                          <ZoomIn className="w-8 h-8 text-foreground opacity-0 group-hover:opacity-80 transition-opacity drop-shadow" />
+                        </div>
                       </div>
                     </motion.div>
                   ))}
@@ -172,6 +180,37 @@ function ProjectDetailContent() {
           )}
         </motion.div>
       </main>
+      {/* Lightbox */}
+      {lightboxImg && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-background/90 backdrop-blur-sm p-4"
+          onClick={() => setLightboxImg(null)}
+        >
+          <button
+            className="absolute top-4 right-4 p-2 rounded-full bg-card border border-border hover:border-gold hover:text-gold transition-colors"
+            onClick={() => setLightboxImg(null)}
+            aria-label="Close"
+          >
+            <X className="w-5 h-5" />
+          </button>
+          <div
+            className="max-w-5xl w-full"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img
+              src={lightboxImg.src}
+              alt={lightboxImg.caption}
+              className="w-full rounded-xl border border-border shadow-2xl object-contain max-h-[80vh]"
+            />
+            <p className="text-center text-sm text-muted-foreground mt-3 px-4">
+              {lightboxImg.caption}
+            </p>
+          </div>
+        </motion.div>
+      )}
     </div>
   );
 }
