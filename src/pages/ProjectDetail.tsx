@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowLeft, TrendingUp, Code, ExternalLink, Award } from "lucide-react";
+import { ArrowLeft, TrendingUp, Code, ExternalLink, Award, ChevronLeft, ChevronRight } from "lucide-react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { getProjectById } from "@/data/projects";
 import { ThemeProvider } from "@/hooks/useTheme";
@@ -9,7 +10,8 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 function ProjectDetailContent() {
   const { projectId } = useParams<{ projectId: string }>();
   const navigate = useNavigate();
-  
+  const [activeImage, setActiveImage] = useState(0);
+
   const project = projectId ? getProjectById(projectId) : undefined;
 
   if (!project) {
@@ -120,6 +122,68 @@ function ProjectDetailContent() {
               {project.details}
             </p>
           </div>
+
+          {/* Image Gallery */}
+          {project.images && project.images.length > 0 && (
+            <div className="mt-10">
+              <h2 className="font-display text-xl text-foreground mb-6">Project Screenshots</h2>
+
+              {/* Main Image */}
+              <div className="relative rounded-xl overflow-hidden border border-border bg-card">
+                <img
+                  src={project.images[activeImage].src}
+                  alt={project.images[activeImage].caption}
+                  className="w-full object-contain max-h-[520px]"
+                />
+
+                {/* Prev / Next buttons */}
+                {project.images.length > 1 && (
+                  <>
+                    <button
+                      onClick={() => setActiveImage((prev) => (prev - 1 + project.images!.length) % project.images!.length)}
+                      className="absolute left-3 top-1/2 -translate-y-1/2 p-2 rounded-full bg-background/80 border border-border hover:border-gold hover:text-gold transition-colors"
+                      aria-label="Previous image"
+                    >
+                      <ChevronLeft className="w-5 h-5" />
+                    </button>
+                    <button
+                      onClick={() => setActiveImage((prev) => (prev + 1) % project.images!.length)}
+                      className="absolute right-3 top-1/2 -translate-y-1/2 p-2 rounded-full bg-background/80 border border-border hover:border-gold hover:text-gold transition-colors"
+                      aria-label="Next image"
+                    >
+                      <ChevronRight className="w-5 h-5" />
+                    </button>
+                  </>
+                )}
+              </div>
+
+              {/* Caption */}
+              <p className="text-center text-sm text-muted-foreground mt-3">
+                {project.images[activeImage].caption}
+              </p>
+
+              {/* Thumbnail Strip */}
+              {project.images.length > 1 && (
+                <div className="flex gap-2 mt-4 overflow-x-auto pb-2">
+                  {project.images.map((img, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setActiveImage(idx)}
+                      className={`flex-shrink-0 rounded-lg overflow-hidden border-2 transition-colors ${
+                        idx === activeImage ? "border-gold" : "border-border hover:border-gold/50"
+                      }`}
+                    >
+                      <img
+                        src={img.src}
+                        alt={img.caption}
+                        className="w-20 h-14 object-cover"
+                      />
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
         </motion.div>
       </main>
     </div>
