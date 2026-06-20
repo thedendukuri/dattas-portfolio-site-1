@@ -34,7 +34,7 @@ function ProjectDetailContent() {
       
       {/* Header */}
       <header className="border-b border-border">
-        <div className="container mx-auto px-6 py-4 max-w-4xl">
+        <div className="container mx-auto px-6 py-4 max-w-4xl flex items-center justify-between">
           <Button
             onClick={() => navigate("/projects")}
             variant="ghost"
@@ -43,6 +43,11 @@ function ProjectDetailContent() {
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Projects
           </Button>
+          {project.id === "wayfair-dashboard" && (
+            <p className="text-xs text-muted-foreground italic text-right max-w-[220px] leading-relaxed">
+              This project is ongoing —<br className="hidden sm:block" /> I'll keep adding new updates.
+            </p>
+          )}
         </div>
       </header>
 
