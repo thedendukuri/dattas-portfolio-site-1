@@ -1,7 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowLeft, TrendingUp, Code, ExternalLink, Award, ChevronLeft, ChevronRight } from "lucide-react";
-import { useState } from "react";
+import { ArrowLeft, TrendingUp, Code, ExternalLink, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { getProjectById } from "@/data/projects";
 import { ThemeProvider } from "@/hooks/useTheme";
@@ -10,7 +9,6 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 function ProjectDetailContent() {
   const { projectId } = useParams<{ projectId: string }>();
   const navigate = useNavigate();
-  const [activeImage, setActiveImage] = useState(0);
 
   const project = projectId ? getProjectById(projectId) : undefined;
 
@@ -123,65 +121,48 @@ function ProjectDetailContent() {
             </p>
           </div>
 
-          {/* Image Gallery */}
+          {/* Workflow Pathway */}
           {project.images && project.images.length > 0 && (
-            <div className="mt-10">
-              <h2 className="font-display text-xl text-foreground mb-6">Project Screenshots</h2>
+            <div className="mt-12">
+              <h2 className="font-display text-xl text-foreground mb-1">How I Worked Through It</h2>
+              <p className="text-sm text-muted-foreground mb-10">A step-by-step walkthrough of the analysis process</p>
 
-              {/* Main Image */}
-              <div className="relative rounded-xl overflow-hidden border border-border bg-card">
-                <img
-                  src={project.images[activeImage].src}
-                  alt={project.images[activeImage].caption}
-                  className="w-full object-contain max-h-[520px]"
-                />
+              <div className="relative">
+                {/* Vertical connecting line */}
+                <div className="absolute left-[19px] top-10 bottom-10 w-0.5 bg-gradient-to-b from-gold via-gold/40 to-transparent" />
 
-                {/* Prev / Next buttons */}
-                {project.images.length > 1 && (
-                  <>
-                    <button
-                      onClick={() => setActiveImage((prev) => (prev - 1 + project.images!.length) % project.images!.length)}
-                      className="absolute left-3 top-1/2 -translate-y-1/2 p-2 rounded-full bg-background/80 border border-border hover:border-gold hover:text-gold transition-colors"
-                      aria-label="Previous image"
-                    >
-                      <ChevronLeft className="w-5 h-5" />
-                    </button>
-                    <button
-                      onClick={() => setActiveImage((prev) => (prev + 1) % project.images!.length)}
-                      className="absolute right-3 top-1/2 -translate-y-1/2 p-2 rounded-full bg-background/80 border border-border hover:border-gold hover:text-gold transition-colors"
-                      aria-label="Next image"
-                    >
-                      <ChevronRight className="w-5 h-5" />
-                    </button>
-                  </>
-                )}
-              </div>
-
-              {/* Caption */}
-              <p className="text-center text-sm text-muted-foreground mt-3">
-                {project.images[activeImage].caption}
-              </p>
-
-              {/* Thumbnail Strip */}
-              {project.images.length > 1 && (
-                <div className="flex gap-2 mt-4 overflow-x-auto pb-2">
+                <div className="space-y-12">
                   {project.images.map((img, idx) => (
-                    <button
+                    <motion.div
                       key={idx}
-                      onClick={() => setActiveImage(idx)}
-                      className={`flex-shrink-0 rounded-lg overflow-hidden border-2 transition-colors ${
-                        idx === activeImage ? "border-gold" : "border-border hover:border-gold/50"
-                      }`}
+                      initial={{ opacity: 0, x: -16 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true, margin: "-60px" }}
+                      transition={{ duration: 0.45, delay: idx * 0.05 }}
+                      className="relative pl-14"
                     >
-                      <img
-                        src={img.src}
-                        alt={img.caption}
-                        className="w-20 h-14 object-cover"
-                      />
-                    </button>
+                      {/* Step number bubble */}
+                      <div className="absolute left-0 top-0 flex items-center justify-center w-10 h-10 rounded-full bg-card border-2 border-gold text-gold font-bold text-sm z-10">
+                        {idx + 1}
+                      </div>
+
+                      {/* Caption / step label */}
+                      <p className="text-sm font-medium text-foreground mb-3 leading-relaxed pt-1.5">
+                        {img.caption}
+                      </p>
+
+                      {/* Screenshot */}
+                      <div className="rounded-xl overflow-hidden border border-border bg-card shadow-sm">
+                        <img
+                          src={img.src}
+                          alt={`Step ${idx + 1}`}
+                          className="w-full object-contain"
+                        />
+                      </div>
+                    </motion.div>
                   ))}
                 </div>
-              )}
+              </div>
             </div>
           )}
         </motion.div>

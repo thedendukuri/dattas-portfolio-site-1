@@ -7,6 +7,7 @@ export interface Project {
   category: "finance" | "technical";
   liveUrl?: string;
   certificateUrl?: string;
+  images?: { src: string; caption: string }[];
 }
 
 export const financeProjects: Project[] = [
@@ -37,6 +38,15 @@ export const technicalProjects: Project[] = [
     details: "Analyzed 2,500+ furniture transactions through Jupyter Notebook and SQL (Clickhouse OLAP DB) to build an executive-ready category performance dashboard. Identified top-performing categories (coffee tables: 18.2% margin, 4.1% returns) vs. underperformers (bed frames: 12.3% returns) through pivot analysis, informing supplier negotiation and promotional prioritization.",
     technologies: ["Python", "Jupyter Notebook", "SQL", "Clickhouse", "Data Analysis", "Excel"],
     category: "technical",
+    images: [
+      { src: "/images/wayfair/csv-data-snap.png", caption: "Started with raw transaction data — 2,500+ furniture order records exported as a CSV, covering categories, prices, return flags, and margin fields" },
+      { src: "/images/wayfair/data-info.png", caption: "Inspected the schema — examined column types, row counts, and null rates to decide what needed cleaning before any analysis could run" },
+      { src: "/images/wayfair/1-jnotebook-data-loading.png", caption: "Loaded the data into Jupyter — used pandas to read the CSV and preview the first rows, confirming columns parsed correctly" },
+      { src: "/images/wayfair/2-jnotebook-output.png", caption: "Verified the initial output — checked dataset shape and data types to make sure nothing was miscast before building aggregations" },
+      { src: "/images/wayfair/3-jnotebook-missing-data-&-stats.png", caption: "Profiled data quality — counted nulls per column and ran descriptive stats (mean, median, std dev) to catch anomalies early" },
+      { src: "/images/wayfair/4-jnotebook-column-outliers.png", caption: "Scanned for column-level outliers — flagged values beyond 3 standard deviations in price and quantity to avoid skewing category margins" },
+      { src: "/images/wayfair/5-revenue-outliers.png", caption: "Isolated revenue outliers — extreme transactions were validated individually before being included in the final margin and return-rate calculations" },
+    ],
   },
   {
     id: "prvaaha-platform",
